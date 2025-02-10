@@ -8,10 +8,9 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
          try{
              System.out.println("Hello");
-         }
-         catch(IOException e)
+         }catch(Exception e)
          {
-             System.out.println("hell");
+             System.out.println("Exception");
          }
     }
 }
