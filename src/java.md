@@ -81,3 +81,77 @@ source code -> compile -> byte code (.class) -> jvm ->machine code
 - native lib :  
 - GC : manage memory by reclaiming memory
 ![](/Class-Loader-1024.webp)
+
+
+## string
+every character 16-bit UTF-16 encoding
+string, stringBuilder, stringBuffer implements charsequence interface
+- String class and all wrapper classes in Java that include Boolean, Character, Byte, Short, Integer, Long, Float, and Double are immutable.
+- string is immutable cannot changed once created if you want to change new object is created
+- methods of string like toupper, tolower will also give new object
+- it is automatically thread-safe
+
+##### stringBuffer
+- it is mutable 
+- thread safe hence overhead
+- used in multithreaded program
+- StringBuffer demoString = new StringBuffer(“Motadata”);
+
+##### stringBuilder
+- mutable
+- not threadsafe
+- mainly used in single-threaded program
+- StringBuilder does not guarantee synchronization, while StringBuffer does.
+- StringBuilder is faster than StringBuffer in most implementations.
+
+- Whenever a String Object is created as a literal, the object will be created in the String constant pool.
+```java
+String demo = "demo";
+```
+- The string can also be declared using a new operator i.e. dynamically allocated. In case of String are dynamically allocated they are assigned a new memory location in the heap. This string will not be added to the String constant pool.
+```java
+String demo = new String("demo");
+```
+- if you want to insert above string in string pool
+```java
+String internedString = demoString.intern(); 
+```
+
+#### Why did the String pool move from PermGen to the normal heap area? 
+- PermGen space is limited, the default size is just 64 MB. it was a problem with creating and storing too many string objects in PermGen space. That’s why the String pool was moved to a larger heap area. To make Java more memory efficient, the concept of string literal is used. By the use of the ‘new’ keyword, The JVM will create a new string object in the normal heap area even if the same string object is present in the string pool. 
+
+
+
+- Regardless of its placement, the default case only gets executed if none of the other case conditions are met. So, putting it at the beginning, middle, or end doesn't change the core logic
+
+
+# memory management 
+- done by JVm stored in RAM
+- whenever you create anything using new it will resides in HEAP
+- each thread has it separate stack
+- all thread share same heap
+- first refernce is deleted from stack
+
+## GC - control by jvm
+- system.gc() : to run garbage collector (No garuntee)
+- person obj = new person() --->> strong reference
+- WeakReference<person> weak = new WeakReference<person>(new person)
+- 
+
+
+whenever you create new object it will be create in eden
+ young generation = minor GC : happen frequently
+mark & sweep algo = mark all the object that doesn't have reference
+      sweep algo = delete mark object and add excluded object in s0 and add age
+      another sweep s0 -> s1 increase age
+      another sweep s1 -> s0 increase age
+
+promotion happen when reach threasold age and promoted to old generation
+old generation = major gc
+ 
+
+serial gc -> only 1 thread -> slow -> expensive -> all thread stop because of gc
+parallel gc -> default -> number of core = thread -> little bit less wait
+concurrent mark and sweep -> concurrent application not stop | no garuntee
+g1 garbage
+
