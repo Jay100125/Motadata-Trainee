@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // program for number division only for integer
-public class DivisionProgram {
+public class Prac3 {
     public static void main(String[] args) {
         // scanner object is defined here because we can close it in finally
         // we can also use try with resources like try( Scanner sc = new Scanner(System.in)) --> here we don't require finally block

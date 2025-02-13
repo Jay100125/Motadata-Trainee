@@ -1,4 +1,4 @@
-//package oop;
+package oop;
 //
 //class A
 //{
@@ -24,7 +24,7 @@ public class Testing2 {
         String s = "Hello World!";
         String s2 = new String("Hello World!");
         int s1 = 0;
-        if(s1 instanceof Object)
+        if(s2 instanceof Object)
             System.out.println("yes....");
         if (array instanceof Object)
             System.out.println("Yes!");

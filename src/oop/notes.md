@@ -100,12 +100,31 @@ then the reference type is User, and the actual object type is Staff.
 
 
 
+## abstraction
+- abstract class
+  - Abstract class should be extended
+  - possible to have abstract class without any abstract method
+- abstract subclass
+  - need not override abstract methods
+  - can override methods
+  - can define abstract and concrete methods
+- concrete subclass
+  -must override unimplemeted abstract methods
+- abstract class still have constructor
+- 
 
+## interfaces
+- interface can be of reference type
+- methods are public and abstract by default
+- variables are public, static and final by default
+- they don't have any state (means no instance variable)
+- non-instantiable
+- both class and interface have public and default
+- can have static constant variable, abstract method, default methods, static methods
+- 
 
-
-
-
-
+### prefer interfaces over abstract classes
+- use interfaces if you want to define mixins or if you want to define representative behavior of subclass
 
 --- Hi Jay,
 
