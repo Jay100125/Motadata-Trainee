@@ -39,5 +39,43 @@ public class StringPrac {
         System.out.println("Original String " + str1);
         String str2 = "feeksforfeeks".replace('f' ,'g') ;
         System.out.println("Replaced f with g -> " + str2);
+
+        System.out.println("*********************");
+
+
+        String x = "something";
+        String y = "something";
+        String xx = new String("Hello World!");
+        String yy = "Hello World!";
+        if (yy.equals(xx)) {
+            System.out.println("wonderful");
+        }
+        else
+        {
+            System.out.println("Sad life");
+        }
+
+        if(x == y)
+        {
+            System.out.println("wonderful");
+        }
+        else
+        {
+            System.out.println("Sad life");
+        }
+
+        if(xx.intern() == yy)
+        {
+            System.out.println("wonderful");
+        }
+        else {
+            System.out.println("Sad life");
+        }
+
+        System.out.println(x.hashCode());
+        System.out.println(y.hashCode());
+        System.out.println(xx.hashCode());
+        System.out.println(yy.hashCode());
+
     }
 }
