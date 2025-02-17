@@ -51,15 +51,21 @@ class Triangle extends Shape {
         return 0.5 * base * height;
     }
 }
-public class ShapePrac {
+public class Prac8 {
     public static void main(String[] args) {
-        Shape circle = new Circle(5);
-        Shape rectangle = new Rectangle(4, 6);
-        Shape triangle = new Triangle(3, 7);
+//        Shape circle = new Circle(5);
+//        Shape rectangle = new Rectangle(4, 6);
+//        Shape triangle = new Triangle(3, 7);
 
-        System.out.println("Area of circle : " + circle.calculateArea() );
-        System.out.println("Area of rectangle : " + rectangle.calculateArea() );
-        System.out.println("Area of triangle : " + triangle.calculateArea() );
+        Shape s = null;
+        s = new Circle(5);
+        System.out.println("Area of circle : " + s.calculateArea() );
+
+        s = new Rectangle(5, 5);
+        System.out.println("Area of rectangle : " + s.calculateArea() );
+
+        s = new Triangle(5, 5);
+        System.out.println("Area of triangle : " + s.calculateArea() );
 
     }
 }

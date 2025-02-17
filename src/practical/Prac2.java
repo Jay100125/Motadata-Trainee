@@ -114,6 +114,7 @@ public class Prac2 {
         System.out.println();
 
 
+
         Vehicle2 m2 = new Motorcycle("Harley", "classic", 2005, true);
         m2.displayDetails();
         ((Motorcycle)m2).isHasSideCar(); //downcasting

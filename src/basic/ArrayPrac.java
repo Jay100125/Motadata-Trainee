@@ -51,5 +51,8 @@ public class ArrayPrac {
         arr[0] = 100;
         System.out.println(arr2[3]);
         System.out.println(Arrays.equals(arr, arr2));
+
+
+        // double i = new Integer(5);
     }
 }
