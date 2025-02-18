@@ -39,5 +39,31 @@ public class passby {
         Integer f = 135;
         System.out.println(e == f);
 
+        int[] arr = {1,2,3,4,5};
+
+        try{
+            int x = arr[arr.length]/0;
+        }catch(NumberFormatException err)
+        {
+            System.out.println("This is number format exception");
+        }
+        catch(ArithmeticException err)
+        {
+            System.out.println("Arithmetic exception");
+        }
+        catch(ArrayIndexOutOfBoundsException err)
+        {
+            System.out.println("ArrayIndexOutOfBoundsException");
+        }
+        catch(Exception err)
+        {
+            System.out.println("Exception");
+        }
+        finally
+        {
+            System.out.println("finally");
+        }
+
+
     }
 }
