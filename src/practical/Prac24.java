@@ -1,6 +1,9 @@
 package practical;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 class Demo {
     static {
@@ -10,15 +13,25 @@ class Demo {
     private void print() {
         System.out.println("Print method");
     }
+    int a = 10;
+    private int b = 20;
 }
 
 public class Prac24 {
     public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> classy = Prac8.class;
+        Class<?> classy = Demo.class;
 
         System.out.println("Mehods of " + classy.getName() + " are ");
+        Constructor[] c = classy.getConstructors();
+        System.out.println(Arrays.stream(c).toArray());
+
+        for(Field field : classy.getDeclaredFields())
+        {
+            System.out.println(field.getName());
+        }
         for(Method method : classy.getDeclaredMethods()) {
             System.out.println(method.getName());
+
         }
 
 //        Integer i = null;
@@ -53,9 +66,9 @@ public class Prac24 {
         for(Method method : classz.getDeclaredMethods()) {
             System.out.println(method.getName());
         }
-
-        Class<?> clazz = Class.forName("Demo");
-        System.out.println("Class obtained and initialized!");
+//
+//        Class<?> clazz = Class.forName("Demo");
+//        System.out.println("Class obtained and initialized!");
 
     }
 }

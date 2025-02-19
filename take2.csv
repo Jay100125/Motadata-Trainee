@@ -1,0 +1,11 @@
+Studnet Id, Country Code, Enrolled Year, Age, Gender,Experienced Course Code, Engagement Month, Engagement Year,Engagement Type
+1,CN,7,2021,70,F,true,JMC,OCTOBER,2023,Lecture 1
+1,CN,7,2021,70,F,true,Pymc,APRIL,2022,Lecture 11
+2,IN,7,2022,78,M,true,JMC,FEBRUARY,2024,Lecture 2
+2,IN,7,2022,78,M,true,Pymc,OCTOBER,2024,Lecture 2
+3,US,7,2016,79,U,false,JMC,FEBRUARY,2023,Lecture 5
+3,US,7,2016,79,U,false,Pymc,JULY,2020,Lecture 10
+4,GB,12,2022,21,M,true,JMC,MAY,2023,Lecture 8
+4,GB,12,2022,21,M,true,Pymc,JULY,2024,Lecture 11
+5,US,11,2020,32,M,false,JMC,SEPTEMBER,2020,Lecture 7
+5,US,11,2020,32,M,false,Pymc,AUGUST,2022,Lecture 6

@@ -1,5 +1,9 @@
 package practical;
 
+// this is functional interface
+// it contains only one abstract method
+// generally used with lamda expression
+
 interface StringProcessor {
     String process(String str);
 }
