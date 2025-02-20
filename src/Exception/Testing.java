@@ -71,6 +71,24 @@ package Exception;
 //    }
 //
 //}
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+class parent1
+{
+    void func() throws IOException{
+
+    }
+}
+
+class child1 extends parent1
+{
+    void func() throws FileNotFoundException, ArithmeticException {
+
+    }
+}
 public class Testing {
     public static void main(String[] args) {
         Testing t = new Testing();

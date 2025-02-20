@@ -48,7 +48,7 @@ public class WritingFiles {
 //            e.printStackTrace();
 //        }
 
-        try{
+        try{                                                                          
             List<String> data = new ArrayList<>();
             data.add(header);
             for(Student student : students){

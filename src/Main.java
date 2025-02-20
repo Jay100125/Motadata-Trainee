@@ -14,22 +14,64 @@
 //         }
 //    }
 //}
+import java.io.FileNotFoundException;
 import java.util.*;
+
+
+class parentttt
+{
+    static  void func(){
+
+    }
+}
+
+class childdd extends parentttt
+{
+    static void func()
+    {
+
+    }
+}
+
 public class Main
 
 {
-
+    static int x = 0;
     public static void main(String [] args)
 
     {
+        parentttt p = new parentttt();
+        parentttt p1 = new childdd();
+        p1.func();
 
         Scanner sc = new Scanner(System.in);
+//
+//        int a = sc.nextInt();
+//
+//        String b = sc.nextLine();
+//
+//        System.out.printf("number is : "+ a + "and String is : " + b);
 
-        int a = sc.nextInt();
+//        final int b = 0;
+//
 
-        String b = sc.nextLine();
+//            try{
+//                throw new FileNotFoundException("adnj")
+//            }
+//            catch(Exception e)
+//            {
+//                System.out.println(e);
+//            }
 
-        System.out.printf("number is : "+ a + "and String is : " + b);
+        int i = 2;
+        float j = 5.6f;
+
+        float b = a;
+        double a = 10;
+
+        System.out.println(b);
+
+//        System.out.println(sum);
 
     }
 
