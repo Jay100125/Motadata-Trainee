@@ -13,7 +13,7 @@ public class Prac11 {
         arr[j] = temp;
     }
     public static void main(String[] args) {
-        Integer[] arr = {1,2,3,4,5};
+        Integer[] arr = {};
         System.out.println("Original Array: " + Arrays.toString(arr));
 
         Prac11 p = new Prac11();

@@ -1,5 +1,6 @@
 package Exception;
 
+import basic.Test;
 import org.w3c.dom.ls.LSOutput;
 
 class program{
@@ -58,7 +59,7 @@ class program{
     }
 
 }
-public class Demo {
+public class Demo extends Test{
     private final static int i = 7;
     static int j = 0;
     int i1 = 4;
@@ -68,6 +69,7 @@ public class Demo {
     {
         System.out.println(str);
         System.out.println(i2);
+
     }
     private Demo(String str, int i2)
     {
@@ -75,7 +77,9 @@ public class Demo {
         this.str = str;
         this.i2 = i2;
     }
-
+    void show(){
+        System.out.println(jay);
+    }
     public static void main(String[] args) {
             program program = new program();
 //            program program1 = new program();
@@ -90,12 +94,17 @@ public class Demo {
 //        program.somethingDo(10,10);  ambigous if two method have int and long and long and int and you pass int int
             Demo d;
             d = null;
-        System.out.println(d.str);
-        System.out.println(d.i2);
+//        System.out.println(d.str);
+//        System.out.println(d.i2);
 
         d = new Demo("hello",22);
         System.out.println(d.str);
         System.out.println(d.i2);
+
+        Test test = new Test();
+//        System.out.println(test.jay);
+        System.out.println(d.jay);
+        new Demo("helo",212).show();
 //        System.out.println(d.i1);
     }
 }

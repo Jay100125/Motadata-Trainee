@@ -77,4 +77,16 @@ public class DirectoryListing {
             return path.toString();
         }
     }
+
+    public static void main(String[] args) {
+        Path path = Path.of("");
+        System.out.println("cwd = " + path.toAbsolutePath());
+
+        try (Stream<Path> paths = Files.list(path)) {
+            paths.map(DirectoryListing::listDir).forEach(System.out::println);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

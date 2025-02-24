@@ -10,9 +10,9 @@ to uppercase.
  */
 public class Prac19 {
     public static void main(String[] args) {
-        String[] strArr = {"Aman", "Anita", "jay", "jayesh", "Kartikey", "aladin", "akaay"};
+        String[] strArr = {"Aman", "Anita", "jay", "jayesh", "Kartikey", "aladin", "akaay","Aman"};
 
-        List<String> result = Arrays.stream(strArr).filter(names -> names.startsWith("A")).map(String::toUpperCase).collect(Collectors.toList());
+        List<String> result = Arrays.stream(strArr).filter(name -> name.toUpperCase().startsWith("A")).map(String::toUpperCase).distinct().collect(Collectors.toList());
 
         System.out.println(Arrays.toString(strArr));
         System.out.println(result);

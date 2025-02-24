@@ -10,9 +10,11 @@ class Vehicle2
 
     Vehicle2(String make, String model, int year)
     {
-        this.make = make;
-        this.model = model;
-        this.year = year;
+//        this.make = make;
+//        this.model = model;
+        setMake(make);
+        setModel(model);
+        setYear(year);
     }
 
     public void displayDetails() {
@@ -43,6 +45,11 @@ class Vehicle2
     }
 
     public void setYear(int year) {
+        if(year < 0)
+        {
+            System.out.println("Invalid year");
+            return;
+        }
         this.year = year;
     }
 }
@@ -102,6 +109,10 @@ public class Prac2 {
 
         Car2 car = new Car2("Toyota", "Camry", 2004,4);
         car.displayDetails();
+        System.out.println();
+
+        Car2 car22 = new Car2("Toyota", "Camry", -100,4);
+        car22.displayDetails();
         System.out.println();
 
         Motorcycle m1 = new Motorcycle("Harley", "classic", 2005, false);

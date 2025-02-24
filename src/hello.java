@@ -1,3 +1,5 @@
+import java.io.Console;
+import java.math.BigDecimal;
 
 class parent{
     parent()
@@ -55,6 +57,19 @@ public class hello {
         System.out.println(s3.hashCode());
 
         String s4 = new String("Java");
+
+        double discount_value = 1000*(1-0.9);
+        System.out.println(discount_value); //999.999999997 we want 100
+
+        System.out.printf("value is %.3f\n", discount_value);
+
+
+        // console is thread safe and also protect password
+//        Console cc = System.console();
+//        System.out.println("Enter the Name");
+//        String s = cc.readLine();
+//        System.out.println("Name is "+s);
+
 
 
     }

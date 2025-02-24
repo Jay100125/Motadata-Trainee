@@ -14,6 +14,8 @@
 //         }
 //    }
 //}
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -36,7 +38,16 @@ class childdd extends parentttt
 public class Main
 
 {
-    static int x = 0;
+   static int age = 10;
+   static Main main = new Main();
+   final static String name = "james";
+
+   Main()
+   {
+       System.out.println(age);
+       System.out.println();
+   }
+
     public static void main(String [] args)
 
     {
@@ -66,12 +77,15 @@ public class Main
         int i = 2;
         float j = 5.6f;
 
-        float b = a;
+//        float b = a;
         double a = 10;
 
-        System.out.println(b);
+//        System.out.println(b);
 
 //        System.out.println(sum);
+
+        System.out.println(age);
+        System.out.println(name);
 
     }
 

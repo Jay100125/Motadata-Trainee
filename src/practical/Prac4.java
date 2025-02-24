@@ -30,6 +30,32 @@ public class Prac4 {
         } catch (IOException e) {
             System.out.println("Error: Unable to write to file.");
         }
+
+
+
+        try{
+            FileReader fr = new FileReader(inputFilePath);
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(fr);
+            int count = 0;
+            String line;
+            while((line = br.readLine()) != null)
+            {
+                String[] words = line.split(" ");
+                count += words.length;
+
+            }
+
+            FileWriter fw = new FileWriter(outputFilePath, true);
+            fw.write("\n" +count + "\n");
+            System.out.println(count + " words written to file");
+            System.out.println("second");
+            fw.close();
+        }catch(FileNotFoundException e){
+            System.out.println("Error: File not found.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

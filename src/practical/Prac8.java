@@ -10,6 +10,9 @@ class Circle extends Shape {
 
     // Constructor
     public Circle(double radius) {
+        if(radius < 0) {
+            throw new IllegalArgumentException("Radius cannot be negative");
+        }
         this.radius = radius;
     }
 
@@ -25,6 +28,9 @@ class Circle extends Shape {
 class Rectangle extends Shape {
     private double length, breadth;
     Rectangle(double length, double breadth) {
+        if(length < 0 || breadth < 0) {
+            throw new IllegalArgumentException("Length and Breadth cannot be negative");
+        }
         this.length = length;
         this.breadth = breadth;
     }
@@ -41,6 +47,9 @@ class Triangle extends Shape {
 
     // Constructor
     public Triangle(double base, double height) {
+        if(base < 0 || height < 0) {
+            throw new IllegalArgumentException("Base and Height cannot be negative");
+        }
         this.base = base;
         this.height = height;
     }
@@ -57,15 +66,20 @@ public class Prac8 {
 //        Shape rectangle = new Rectangle(4, 6);
 //        Shape triangle = new Triangle(3, 7);
 
-        Shape s = null;
-        s = new Circle(5);
-        System.out.println("Area of circle : " + s.calculateArea() );
+        try {
 
-        s = new Rectangle(5, 5);
-        System.out.println("Area of rectangle : " + s.calculateArea() );
+            Shape s = null;
+            s = new Circle(5);
+            System.out.println("Area of circle : " + s.calculateArea() );
 
-        s = new Triangle(5, 5);
-        System.out.println("Area of triangle : " + s.calculateArea() );
+            s = new Rectangle(5, 5);
+            System.out.println("Area of rectangle : " + s.calculateArea() );
+
+            s = new Triangle(5, 5);
+            System.out.println("Area of triangle : " + s.calculateArea() );
+        }catch(IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
     }
 }

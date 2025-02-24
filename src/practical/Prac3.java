@@ -1,11 +1,13 @@
 package practical;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.*;
 
 // program for number division only for integer
 public class Prac3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // scanner object is defined here because we can close it in finally
         // we can also use try with resources like try( Scanner sc = new Scanner(System.in)) --> here we don't require finally block
 
@@ -33,6 +35,25 @@ public class Prac3 {
         finally {
             sc.close();
         }
+
+//        ArrayList<Prac3> p3 = new ArrayList();
+
+
+//        ExecutorService t = Executors.newCachedThreadPool();
+//        for(int i=0; i<1000; i++) {
+//            t.submit(() -> {
+//                Prac3 prac3 = new Prac3();
+//                p3.add(prac3);
+//                try {
+//                    System.out.println(Thread.currentThread().getName());
+//                    Thread.sleep(600000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            });
+//        }
+//
+//        Thread.sleep(70000000);
 
     }
 }

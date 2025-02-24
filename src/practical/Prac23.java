@@ -11,7 +11,7 @@ public class Prac23 {
         Calculator mul = (a, b) -> a * b;
         Calculator div = (a, b) -> a / b;
 
-        double x = 10, y = 5;
+        double x = 0.2, y = 0.3;
         System.out.println("Addition of two numbers is " + add.operation(x, y));
         System.out.println("Subtraction of two numbers is " + sub.operation(x, y));
         System.out.println("Multiplication of two numbers is " + mul.operation(x, y));
