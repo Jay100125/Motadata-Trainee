@@ -18,6 +18,9 @@ class child extends parent{
         System.out.println("CHILD");
     }
 }
+abstract class AAA{
+
+}
 public class hello {
 
     static {
@@ -70,7 +73,11 @@ public class hello {
 //        String s = cc.readLine();
 //        System.out.println("Name is "+s);
 
+        StringBuilder str3 = new StringBuilder();
+        String str4 = str3.toString();
+        String str5 = str3.toString();
 
+        System.out.println(str4.equals(str5));
 
     }
 }

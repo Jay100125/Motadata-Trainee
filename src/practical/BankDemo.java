@@ -16,7 +16,7 @@ class Bank {
     }
 }
 
-class InsufficientFundsException extends Exception {
+class InsufficientFundsException extends RuntimeException {
     public InsufficientFundsException(String message) {
         super(message);
     }
