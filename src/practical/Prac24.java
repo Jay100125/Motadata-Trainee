@@ -16,7 +16,7 @@ class Demo {
         System.out.println(b);
     }
     int a = 10;
-    private int b = 20;
+     int b = 20;
 
     void printl(){
         System.out.println("Printl method");
@@ -65,6 +65,8 @@ public class Prac24 {
 
         System.out.println("_-------------------");
 
+//        Demo d = new Demo();
+//        System.out.println(d.b);
 
 //        Integer i = null;
 //        int j = null;

@@ -95,10 +95,77 @@ E :- type of element
 - constant time for the retrieval methods (peek, element, and size).
 
 
+### hashMap
+- key, value pair
+- implement map interface
+- permits null values and the null key.
+- The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls.
+- this implementation is not synchronized
+- Uses a hash function to map keys to buckets; collisions are handled using linked lists or trees
+- Load factor (default 0.75) determines when to resize
+- This implementation provides constant-time performance for the basic operations (get and put), assuming the hash function disperses the elements properly among the buckets. Iteration over collection views requires time proportional to the "capacity" of the HashMap instance (the number of buckets) plus its size (the number of key-value mappings). Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.
+- Map m = Collections.synchronizedMap(new HashMap(...));
+
+
+### hashtable
+- To successfully store and retrieve objects from a hashtable, the objects used as keys must implement the hashCode method and the equals method.
+- Hashtable is synchronized
+- Does not allow null keys or values
+
+### hashset
+- implement set interface
+- Only stores values (no keys)
+- permits the null element.
+- This class offers constant time performance for the basic operations (add, remove, contains and size) 
+- Note that this implementation is not synchronized.
+- Permits one null element
+
+
+### treeMap
+- uses red-black tree
+- map is sorted according to key or by comparator
+- O(logn) for get, put remove operation
+- not synchronized
+- 
+
+# Comparison of HashMap, HashSet, and Hashtable
+
+| Feature       | HashMap      | HashSet      | Hashtable   |
+|--------------|-------------|-------------|------------|
+| **Interface** | Map         | Set         | Map        |
+| **Thread Safety** | No         | No         | Yes        |
+| **Null Keys** | Yes         | Yes (one)   | No         |
+| **Null Values** | Yes         | N/A        | No         |
+| **Performance** | Fastest     | Fast       | Slower (synchronized) |
+| **Iteration Order** | No guarantee | No guarantee | No guarantee |
+| **Internal Structure** | Hash table | Uses HashMap internally | Hash table |
+
+# sorting algorithm
+Algorithm        | Stable? | Notes  
+--------------- | ------- | ----------------------------------------------  
+Bubble Sort     | Yes     | Adjacent swaps preserve equal-element order  
+Quick Sort      | No      | Pivot partitioning scrambles equal elements  
+Merge Sort      | Yes     | Merging respects original order of equals  
+Timsort (Java)  | Yes     | Built for stability in object sorting  
+Insertion Sort  | Yes     | Insertion preserves relative positions  
 
 
 
 
+Class           | Add            | Remove         | Search  
+-------------- | -------------- | -------------- | --------------  
+ArrayList      | O(1) amortized / O(n) at index | O(n) | O(n)  
+LinkedList     | O(1) ends / O(n) at index | O(n) | O(n)  
+Vector         | O(1) amortized / O(n) at index | O(n) | O(n)  
+HashSet        | O(1) avg       | O(1) avg       | O(1) avg  
+LinkedHashSet  | O(1) avg       | O(1) avg       | O(1) avg  
+TreeSet        | O(log n)       | O(log n)       | O(log n)  
+PriorityQueue  | O(log n)       | O(log n) head / O(n) object | O(n)  
+ArrayDeque     | O(1) amortized | O(1) ends / O(n) object | O(n)  
+HashMap        | O(1) avg       | O(1) avg       | O(1) avg  
+LinkedHashMap  | O(1) avg       | O(1) avg       | O(1) avg  
+TreeMap        | O(log n)       | O(log n)       | O(log n)  
+Hashtable      | O(1) avg       | O(1) avg       | O(1) avg  
 
 
 
@@ -132,3 +199,57 @@ linkedHashMap :- store item in order manner
   - no null or key
   - legacy class , replaced by concurrentHashMap
   - slower than HashMap
+
+
+- remove in min-heap ---- O(logn)
+- insertion in heap --- O(logn)
+
+- getFirst -- retrieve first element if empty then exception
+- getLast -- retrieve last element if empty than exception
+- peekFirst -- retrieve first element if empty then null
+- peekLast -- retrieve last element if empty then null
+
+
+- blocking queue
+  - thread safe
+  - wait for queue to become non-empty / wait for space
+  - producer and consumer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+key :- 1626 :- jay
+okay : 1626 :- kartikey
+key : 1626 : 

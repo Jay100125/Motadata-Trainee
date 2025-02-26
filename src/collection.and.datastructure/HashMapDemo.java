@@ -1,7 +1,45 @@
 package collection.and.datastructure;
 
-
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
+
+class Person {
+
+    long id;
+    String name;
+    LocalDate dateOfBirth;
+
+    public Person(long id, String name, LocalDate dateOfBirth) {
+        this.id = id;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+}
 
 public class HashMapDemo {
     public static void main(String[] args) {
@@ -49,6 +87,38 @@ public class HashMapDemo {
 
         System.out.println(sortedMap.firstKey());
         System.out.println(sortedMap.lastKey());
+
+
+//        IdentityHashMap<String , Integer> identityMap = new IdentityHashMap<>();
+
+
+        // shallow copy on map
+        HashMap<Integer, Person> personMap = new HashMap<>();
+
+        personMap.put(1, new Person(1l, "Alex", LocalDate.of(1990, 01, 01)));
+        personMap.put(2, new Person(2l, "Bob", LocalDate.of(1990, 02, 01)));
+
+        HashMap<Integer, Person> clonedMap = (HashMap<Integer, Person>) personMap.clone();
+        System.out.println(clonedMap.get(1).getName());
+        clonedMap.get(1).setName("Charles");
+
+        System.out.println(clonedMap.get(1).getName());
+        System.out.println(personMap.get(1).getName());
+
+
+
+        Map<Integer, Person> clonedMapWithStream = personMap.entrySet()
+                .stream()
+                //perform customization
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(clonedMapWithStream.get(1).getName());
+        clonedMapWithStream.get(1).setName("cherry");
+        System.out.println(clonedMapWithStream.get(1).getName());
+        System.out.println(personMap.get(1).getName());
+
+
+        HashSet<Integer> set = new HashSet<>();
 
     }
 }

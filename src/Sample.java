@@ -240,6 +240,9 @@ public class Sample{
         return 1;
     }
     public static void main(String args[]){
-        System.out.println(new Sample().print());
+
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+        System.out.println(classLoader);
+//        System.out.println(new Sample().print());
     }
 }

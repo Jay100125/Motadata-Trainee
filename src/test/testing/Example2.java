@@ -4,10 +4,21 @@ import test.Example;
 
 public class Example2 extends Example {
     public static void main(String[] args) {
-        Example2 e = new Example2();
-        Example e2 = new Example();
+        try{
+            throw new StackOverflowError();
+        }
+        catch(StackOverflowError e){
+            System.out.println("Stack OverflowError");
+            System.out.println(e.getMessage());
+        }
+        finally{
+            System.out.println("finally");
+        }
 
-        System.out.println(Example2.x);
-        System.out.println(Example.x);
+        System.out.println("finally");
+        System.out.println("finally");
+
+        System.out.println("finally");
+
     }
 }
