@@ -1,9 +1,8 @@
 package extra;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Stream;
 
 sealed class A {
     int a = 110;
@@ -85,6 +84,87 @@ public class SealedDemo {
 //        }
 //
 //        System.out.println(numbers);
+        LinkedHashMap<Integer, String> hm = new LinkedHashMap<>();
+        hm.put(1, "one");
+        hm.put(2, "two");
+        hm.put(3, "three");
+        hm.put(4, "four");
+
+        for(Map.Entry<Integer, String> entry : hm.entrySet()){
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+        System.out.println("_______________________");
+        System.out.println(hm.put(1, "One"));
+        System.out.println("_______________________");
+
+        for(Map.Entry<Integer, String> entry : hm.entrySet()){
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Banana", 3);
+        hashMap.put("Apple", 1);
+        hashMap.put("Cherry", 2);
+        hashMap.put("Date", 4);
+
+        // Creating a LinkedHashMap
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("Banana", 3);
+        linkedHashMap.put("Apple", 1);
+        linkedHashMap.put("Cherry", 2);
+        linkedHashMap.put("Date", 4);
+
+        // Printing both maps
+        System.out.println("HashMap (Unordered): " + hashMap);
+        System.out.println("LinkedHashMap (Insertion Order Maintained): " + linkedHashMap);
+
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(11);
+        pq.add(32);
+        pq.add(33);
+        pq.add(4);
+        pq.add(5);
+
+        while(!pq.isEmpty()){
+            System.out.println(pq.remove());
+        }
+
+        CopyOnWriteArrayList<Integer> cpa = new CopyOnWriteArrayList<>();
+        cpa.add(1);
+        cpa.add(2);
+        cpa.add(3);
+        cpa.add(4);
+
+        Iterator<Integer> iterator2 = cpa.iterator();
+        while(iterator2.hasNext()){
+            System.out.println(iterator2.next());
+            cpa.add(99);
+        }
+
+        System.out.println(cpa);
+
+        ArrayList<Integer> cpa2 = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+        cpa2.add(1);
+        cpa2.add(2);
+        cpa2.add(3);
+        cpa2.add(4);
+        cpa2.add(5);
+
+        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> deque = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
+
+        System.out.println(cpa.get(9));
+
+        int[] arr = new int[10];
+        arr[0] = 1;
+        arr[1] = 2;
+
+
+
+
+
 
     }
 }

@@ -76,6 +76,12 @@ public class HashMapDemo {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
 
+        Iterator<Map.Entry<String, Integer>> iterator = mpp.entrySet().iterator();
+        while(iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = iterator.next();
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
         System.out.println("-----------------------------------------------------");
 
         SortedMap<String, Integer> sortedMap = new TreeMap<>();

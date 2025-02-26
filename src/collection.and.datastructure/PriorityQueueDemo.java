@@ -1,8 +1,6 @@
 package collection.and.datastructure;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class PriorityQueueDemo {
     public static void main(String[] args) {
@@ -40,6 +38,10 @@ public class PriorityQueueDemo {
         priorityQueue2.add(5);
 
         System.out.println(priorityQueue2);
+
+//        LinkedList
+//        Set<String> ss = new HashSet<>();
+//        ArrayDeque
 
     }
 }
