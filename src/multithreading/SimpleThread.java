@@ -5,7 +5,7 @@ class NumberPrinter extends Thread {
         for (int i = 1; i <= 5; i++) {
             System.out.println(i);
             try {
-                Thread.sleep(1000); // Pause for 1 second between prints
+                Thread.sleep(10000); // Pause for 1 second between prints
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

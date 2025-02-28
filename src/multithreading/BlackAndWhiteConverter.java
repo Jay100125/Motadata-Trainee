@@ -7,8 +7,8 @@ import javax.imageio.ImageIO;
 
 public class BlackAndWhiteConverter {
     public static void main(String[] args) {
-        // Specify input and output file paths
-        String inputImagePath = "./src/multithreading/input.jpeg";  // Replace with your image path
+
+        String inputImagePath = "./src/multithreading/input.jpeg";
         String outputImagePath = "output_bw.jpg";
 
         long startTime = System.currentTimeMillis();
@@ -17,7 +17,6 @@ public class BlackAndWhiteConverter {
             File inputFile = new File(inputImagePath);
             BufferedImage originalImage = ImageIO.read(inputFile);
 
-            // Check if image was loaded successfully
             if (originalImage == null) {
                 System.out.println("Error: Could not load the image.");
                 return;
@@ -26,8 +25,8 @@ public class BlackAndWhiteConverter {
             // Get image dimensions
             int width = originalImage.getWidth();
             int height = originalImage.getHeight();
+            System.out.println("Original image size: " + originalImage.getWidth() + "x" + originalImage.getHeight());
 
-            // Create a new BufferedImage for the black-and-white output
             BufferedImage bwImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
             // Process each pixel
@@ -55,7 +54,6 @@ public class BlackAndWhiteConverter {
                 }
             }
 
-            // Save the black-and-white image
             File outputFile = new File(outputImagePath);
             ImageIO.write(bwImage, "jpeg", outputFile);
 

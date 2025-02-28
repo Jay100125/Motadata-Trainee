@@ -77,9 +77,9 @@ public class BlackAndWhiteConverterMultiThreaded {
     }
 
     public static void main(String[] args) {
-        String inputImagePath = "./src/multithreading/input.jpeg";  // Replace with your image path
+        String inputImagePath = "./src/multithreading/input.jpeg";
         String outputImagePath = "output_bw.jpg";
-        int numThreads = 4;  // Adjust based on your CPU cores
+        int numThreads = 4;
 
         try {
             BlackAndWhiteConverterMultiThreaded converter = new BlackAndWhiteConverterMultiThreaded(inputImagePath);
