@@ -17,7 +17,6 @@ public class StaticSynchronizeDemo {
     public static synchronized void subtract(int value) {
         System.out.println(Thread.currentThread().getName() + " entered subtract method");
         try {
-            // Simulate some work to make the locking visible
             Thread.sleep(2000); // Sleep for 2 seconds
             count -= value;
             System.out.println(Thread.currentThread().getName() + " subtracting " + value + ", count = " + count);
