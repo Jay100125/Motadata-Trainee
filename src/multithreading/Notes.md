@@ -142,10 +142,42 @@ public static MyStaticCounter{
 ## when volatile keyword is enough?
 - In case only one thread reads and writes the value of a volatile variable and other threads only read the variable, then the reading threads are guaranteed to see the latest value written to the volatile variable. Without making the variable volatile.
 
+## Deadlock
+- A deadlock is when two or more threads are blocked waiting to obtain locks that some of the other threads in the deadlock are holding. Deadlock can occur when multiple threads need the same locks, at the same time, but obtain them in different order.
 
+## starvation
+- If a thread is not granted CPU time because other threads grab it all, it is called "starvation".
+- The solution to starvation is called "fairness" - that all threads are fairly granted a chance to execute.
+- Causes of Starvation in Java
+  - Threads with high priority swallow all CPU time from threads with lower priority.
+  - Threads are blocked indefinately waiting to enter a synchronized block, because other threads are constantly allowed access before it.
+  - Threads waiting on an object (called wait() on it) remain waiting indefinitely because other threads are constantly awakened instead of it.
+
+
+
+### difference between Synchronization and lock
+- Synchronization block must be contained within a single method
+  - lock.lock() and lock.unlock() can be called from different method
+- lock.lock() and lock.unlock() provides the same visibility and happens before guarantees as entering and existing a synchronized block
+- synchronizatiozed blocks are always reentrant. lock could decide not to be
+- Synchronized block do not gurantee fairness. locks can
+
+## Read and write lock
+- if a single thread wants to write to the resource, no other reads nor writes must be in progress at the same time. To solve this problem of allowing multiple readers but only one writer, you will need a read / write lock.
+  - Read Access   	If no threads are writing, and no threads have requested write access.
+  - Write Access   	If no threads are reading or writing.
+
+## Thread pool
+- A thread pool is a pool threads that can be "reused" to execute tasks, so that each thread may execute more than one task.
+- 
 
 Doubt
 - Notice how the Java synchronized block construct takes an object in parentheses. In the example "this" is used, which is the instance the add method is called on. The object taken in the parentheses by the synchronized construct is called a monitor object. The code is said to be synchronized on the monitor object. A synchronized instance method uses the object it belongs to as monitor object.
 - cache coherence
+- threadlocal
+- livelock
+- nested monitor lockout
+- starvation
+- 
 
 

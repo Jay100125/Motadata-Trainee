@@ -33,7 +33,6 @@ class ReadOneChar{
         try (FileReader reader = new FileReader("output.txt")) {
             char[] buffer = new char[10];  // Array to store first 10 characters
             int bytesRead = reader.read(buffer, 0, 10); // Read up to 10 characters
-
             if (bytesRead > 0) {
                 System.out.println(new String(buffer, 0, bytesRead)); // Print only read characters
             }
