@@ -169,7 +169,40 @@ public static MyStaticCounter{
 
 ## Thread pool
 - A thread pool is a pool threads that can be "reused" to execute tasks, so that each thread may execute more than one task.
-- 
+- 5 types of thread pool executors
+- 1) Fixed Sized Thread Pool Executor
+    - Creates a thread pool that reuses a fixed number of threads to execute any number of tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available.
+    - ```java
+       ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+      ```
+- 2) Cached Thread Pool Executor
+   - Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available.
+     - ```java
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        ```
+- 3) Scheduled Thread Pool Executor
+  - Creates a thread pool that can schedule commands to run after a given delay or to execute periodically.
+  - ```java
+    ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newScheduledThreadPool(10);
+    ```
+- 4) Single Thread Pool Executor
+   - Creates a single thread to execute all tasks. Use it when you have only one task to execute.
+   - ```java
+      ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newSingleThreadExecutor();
+  ```
+- 5) Work Stealing Thread Pool Executor
+   - Creates a thread pool that maintains enough threads to support the given parallelism level.
+   - ```java
+      ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newWorkStealingPool(4);
+    ```
+
+
+- It is called Mutex if only one person is allowed to watch the play.
+- It is called Semaphore if N number of people are allowed to watch the play. If anybody leaves the Theater during the play then other person can be allowed to watch the play.
+- It is called CountDownLatch if no one is allowed to enter until every person vacates the theater. Here each person has free will to leave the theater.
+- It is called CyclicBarrier if the play will not start until every person enters the theater. Here a showman can not start the show until all the persons enter and grab the seat. Once the play is finished the same barrier will be applied for next show.
+- Here, a person is a thread, a play is a resource.
+
 
 Doubt
 - Notice how the Java synchronized block construct takes an object in parentheses. In the example "this" is used, which is the instance the add method is called on. The object taken in the parentheses by the synchronized construct is called a monitor object. The code is said to be synchronized on the monitor object. A synchronized instance method uses the object it belongs to as monitor object.
