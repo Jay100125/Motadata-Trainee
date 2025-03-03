@@ -33,13 +33,30 @@ public class ThreadDemo extends Thread {
 //        System.out.println("hello");
 //
 //        System.out.println(Thread.currentThread().getName() +" "+Thread.currentThread().getPriority());
-        Thread thread = new Thread(() -> System.out.println("Hello from " +
-                Thread.currentThread().getName()));
-        thread.setName("New Thread");
-        thread.run();
+//        Thread thread = new Thread(() -> System.out.println("Hello from " +
+//                Thread.currentThread().getName()));
+//        thread.start();
+//        Thread.sleep(1000);
+//        thread.setName("New Thread");
+//
+//
+//        Thread.sleep(2000);
+        Thread thread = new Thread(new SleepingThread());
         thread.start();
+        thread.interrupt();
+    }
 
-        Thread.sleep(2000);
+    private static class SleepingThread implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    Thread.sleep(1000000);
+                } catch (InterruptedException e) {
+                    System.out.println(Thread.currentThread().getName() +" "+Thread.currentThread().getPriority());
+                }
+            }
+        }
 
 
     }
