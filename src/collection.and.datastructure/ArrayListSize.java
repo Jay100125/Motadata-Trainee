@@ -1,6 +1,7 @@
 package collection.and.datastructure;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListSize {
     static class MyArrayList<E> extends ArrayList<E> {
@@ -37,5 +38,7 @@ public class ArrayListSize {
             System.out.println("Approximate capacity: " + list.getCapacity());
             size_grow(list);
         }
+
+        Collections.synchronizedList(list);
     }
 }

@@ -1,31 +1,34 @@
 package multithreading.practice;
 
-public class test3 extends Thread {
+import java.util.Comparator;
 
+public class test3 extends Thread {
+    private int counter = 0;
     public void run() {
-        if(Thread.currentThread().isDaemon())
-        {
-            System.out.println("user therad");
-        }
-        else
-        {
-            System.out.println("something else");
-        }
+//        if(Thread.currentThread().isDaemon())
+//        {
+//            System.out.println("My t is deamon");
+//        }
+//        else
+//        {
+//            System.out.println("my is alive");
+//        }
+        counter++;
     }
     public static void main(String[] args) throws InterruptedException {
         test3 t = new test3();
-        t.setDaemon(true);
-
-       if(Thread.currentThread().isDaemon())
-       {
-           System.out.println("Main therad");
-       }
-       else
-       {
-           System.out.println("mainnnn else");
-       }
-       Thread.sleep(1000);
-
+//        t.setDaemon(true);
+//        if(Thread.currentThread().isDaemon())
+//        {
+//            System.out.println("Main is deamon");
+//        }
+//        else
+//        {
+//            System.out.println("Main is alive");
+//        }
+        t.run();
        t.start();
+        System.out.println(t.counter);
+
     }
 }

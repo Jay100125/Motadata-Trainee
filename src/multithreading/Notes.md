@@ -189,12 +189,12 @@ public static MyStaticCounter{
    - Creates a single thread to execute all tasks. Use it when you have only one task to execute.
    - ```java
       ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newSingleThreadExecutor();
-  ```
+     ```
 - 5) Work Stealing Thread Pool Executor
    - Creates a thread pool that maintains enough threads to support the given parallelism level.
    - ```java
       ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newWorkStealingPool(4);
-    ```
+     ```
 
 
 - It is called Mutex if only one person is allowed to watch the play.
