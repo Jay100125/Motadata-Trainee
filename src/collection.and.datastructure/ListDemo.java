@@ -1,6 +1,7 @@
 package collection.and.datastructure;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class ListDemo {
@@ -144,8 +145,29 @@ public class ListDemo {
         System.out.println(unmodifiableList);
 
         // this throw unsupported operation exception
-         unmodifiableList.addAll(ll);
+//         unmodifiableList.addAll(ll);
+        System.out.println("---------");
+        List<Integer> ll4 = new ArrayList<>();
+        ll4.add(1);
+        ll4.add(2);
+        ll4.add(3);
+        ll4.add(4);
 
 
+        System.out.println(ll4);
+
+
+        CopyOnWriteArrayList<Integer> cp = new CopyOnWriteArrayList<>();
+        cp.add(1);
+        cp.add(2);
+        cp.add(3);
+
+        Iterator<Integer> it4 = cp.iterator();
+        while(it4.hasNext()) {
+//            System.out.println(it4.next());
+            it4.remove();
+//            cp.add(4);
+        }
+        System.out.println(cp);
     }
 }

@@ -19,14 +19,10 @@ public class ThreadLocalDemo {
             System.out.println(Thread.currentThread().getName() +
                     " initial value: " + threadLocal.get());
 
-            // Modify the value for this thread
             threadLocal.set(Thread.currentThread().getName() + " specific value");
-
-            // Print the updated value
             System.out.println(Thread.currentThread().getName() +
                     " updated value: " + threadLocal.get());
 
-            // Clean up (optional, good practice)
             threadLocal.remove();
         }
     }
