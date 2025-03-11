@@ -17,7 +17,7 @@ public class test3 extends Thread {
     }
     public static void main(String[] args) throws InterruptedException {
         test3 t = new test3();
-        t.setDaemon(true);
+//        t.setDaemon(true);
         if(Thread.currentThread().isDaemon())
         {
             System.out.println("Main is deamon");

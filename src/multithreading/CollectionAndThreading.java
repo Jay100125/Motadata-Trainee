@@ -59,7 +59,10 @@ class Collections{
 
 class SingleCollection {
     Collections c = new Collections();
-    ConcurrentHashMap<Integer,Integer> concurrentHashMap = (ConcurrentHashMap<Integer, Integer>) c.getCollection(15);
+//    ConcurrentHashMap<Integer,Integer> concurrentHashMap = (ConcurrentHashMap<Integer, Integer>) c.getCollection(15);
+//     Stack<Integer> stack = (Stack<Integer>) c.getCollection(2);
+    List<Integer> list = (List<Integer>) c.getCollection(0);
+
 }
 
 
@@ -68,21 +71,29 @@ public class CollectionAndThreading{
         SingleCollection singleCollection = new SingleCollection();
         Thread t1 = new Thread(()->{
             for(int i = 0; i < 10000; i++) {
-                singleCollection.concurrentHashMap.put(i, i);
+//                singleCollection.concurrentHashMap.put(i, i);
+//                singleCollection.stack.add(i);
+                singleCollection.list.add(i);
             }
         });
 
         Thread t2 = new Thread(()->{
             for(int i = 0; i < 10000; i++) {
-                singleCollection.concurrentHashMap.put(i, i*-1);
+//                singleCollection.concurrentHashMap.put(i, i*-1);
+//                singleCollection.stack.add(i);
+                singleCollection.list.add(i);
             }
+
         });
 
         Thread t3 = new Thread(()->{
-            for(var e : singleCollection.concurrentHashMap.entrySet()){
-                System.out.println(e.getKey() + "&" + e.getValue());
+//            for(var e : singleCollection.concurrentHashMap.entrySet()){
+//                System.out.println(e.getKey() + "&" + e.getValue());
+//            }
+            for(var e : singleCollection.list) {
+                System.out.println(e);
             }
-            System.out.println("total length is : " + singleCollection.concurrentHashMap.size());
+            System.out.println("total length is : " + singleCollection.list.size());
         });
 
         t1.start();

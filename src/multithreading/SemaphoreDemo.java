@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 public class SemaphoreDemo {
 
-    private static final Semaphore semaphore = new Semaphore(5, true);
+    private static final Semaphore semaphore = new Semaphore(3, true);
     private static int resourceUsageCount = 0;
 
     public void useResource(String threadName) {
@@ -12,8 +12,10 @@ public class SemaphoreDemo {
             System.out.println(threadName + " is waiting to acquire a resource...");
             semaphore.acquire();
             synchronized (SemaphoreDemo.class) {
+//                semaphore.acquire();
                 resourceUsageCount++;
                 System.out.println(threadName + " acquired a resource. Total in use: " + resourceUsageCount);
+//                semaphore.release();
             }
 
             Thread.sleep(2000);
@@ -27,6 +29,8 @@ public class SemaphoreDemo {
             System.out.println(threadName + " was interrupted");
         } finally {
             semaphore.release();
+//            semaphore.release();
+
         }
     }
 

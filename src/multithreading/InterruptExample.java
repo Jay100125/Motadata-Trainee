@@ -17,8 +17,12 @@ public class InterruptExample extends Thread
         }
         catch (InterruptedException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
+//            Thread.currentThread().interrupt();
         }
+
+
+        System.out.println(Thread.currentThread().getName() + " is interrupted");
     }
 
     public static void main(String[] args)

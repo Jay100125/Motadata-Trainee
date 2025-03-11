@@ -1,8 +1,6 @@
 package collection.and.datastructure;
 
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Queue;
+import java.util.*;
 
 class ArrayQueue {
     private Employee[] queue;

@@ -22,7 +22,6 @@ public class ListDemo {
 
         ll.addAll(ss);
         System.out.println(ll);
-
         System.out.println(ll.size()); // 3
         System.out.println(ll.get(0)); // A
 
@@ -144,6 +143,10 @@ public class ListDemo {
         List<String> unmodifiableList = Collections.unmodifiableList(ll);
         System.out.println(unmodifiableList);
 
+        System.out.println("------------");
+//        unmodifiableList.remove(1);
+        System.out.println(unmodifiableList);
+
         // this throw unsupported operation exception
 //         unmodifiableList.addAll(ll);
         System.out.println("---------");
@@ -163,11 +166,63 @@ public class ListDemo {
         cp.add(3);
 
         Iterator<Integer> it4 = cp.iterator();
-        while(it4.hasNext()) {
-//            System.out.println(it4.next());
-            it4.remove();
-//            cp.add(4);
-        }
+//        while(it4.hasNext()) {
+////            System.out.println(it4.next());
+////            it4.remove();
+////            cp.add(4);
+//        }
         System.out.println(cp);
+
+
+
+        List<Integer> ll5 = new ArrayList<>();
+        ll5.add(1);
+        ll5.add(2);
+        ll5.add(3);
+        ll5.add(4);
+        ll5.add(5);
+
+        Enumeration<Integer> e = Collections.enumeration(ll5);
+        while(e.hasMoreElements())
+        {
+            System.out.println(e.nextElement());
+            System.out.println("----------");
+        }
+//        for(Integer i : ll5) {
+//            ll5.remove(i);
+//        }
+
+//        Iterator<Integer> it5 = ll5.iterator();
+//        while(it5.hasNext()) {
+////            System.out.println(it5.next());
+////            ll5.remove(it5.next());
+//        }
+//        System.out.println(ll5);
+//
+//        HashMap<Integer, String>hh = new HashMap<>();
+
+        System.out.println("@@@@@@@@@@");
+        List<Integer> ll6 = new ArrayList<>();
+        ll6.add(1);
+        ll6.add(2);
+        ll6.add(3);
+        ll6.add(4);
+        ll6.add(5);
+
+//        for(int i = 0; i < ll6.size(); i++)
+//        {
+//            if(i == 2)
+//            {
+//                ll6.remove(i+1);
+//            }
+//        }
+
+//        Iterator<Integer> it6 = ll6.iterator();
+//        while(it6.hasNext())
+//        {
+//            ll6.remove(it6.next());
+//        }
+//        System.out.println(ll6);
+
     }
 }

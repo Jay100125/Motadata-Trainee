@@ -15,10 +15,11 @@ public class InetAddressDemo {
             System.out.println(inetAddress1.getHostName());
             System.out.println(inetAddress1.getHostAddress());
             System.out.println(inetAddress1.getCanonicalHostName());
-
+            System.out.println(inetAddress1.isLoopbackAddress());
 
             InetAddress inetAddress2 = InetAddress.getByName("google.com");
             System.out.println(inetAddress2.equals(inetAddress));
+            System.out.println(inetAddress2.isLoopbackAddress());
         }
         catch(Exception e)
         {
