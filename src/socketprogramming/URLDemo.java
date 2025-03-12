@@ -1,9 +1,8 @@
 package socketprogramming;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import javax.xml.crypto.Data;
+import java.io.*;
+import java.net.*;
 
 //public class URLDemo {
 //    public static void main(String[] args) throws IOException {
@@ -27,30 +26,44 @@ import java.net.URLConnection;
 //    }
 //}
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
 public class URLDemo {
     public static void main(String[] args) {
-        try {
-            // Create a URL object
-            URL url = new URL("https://www.google.com");
+//        try {
+//            // Create a URL object
+//            URL url = new URL("https://www.google.com");
+//
+//            // Open a connection to the URL
+//            URLConnection connection = url.openConnection();
+//
+//            // Read data from the URL
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//            reader.close();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-            // Open a connection to the URL
-            URLConnection connection = url.openConnection();
+        try{
+            Socket s = new Socket("localhost", 6666);
+            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
-            // Read data from the URL
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+            for(int i = 0; i < 5; i++)
+            {
+                dos.writeUTF("Hello World");
+                dos.flush();
             }
-            reader.close();
-
+            dos.close();
+            s.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 }
+
