@@ -260,26 +260,25 @@ import java.util.concurrent.*;
 public class PrivateChatServer {
     private static final int PORT = 8080;
     static final ConcurrentHashMap<String, ClientHandlerrr> clients = new ConcurrentHashMap<>();
-    private static final ExecutorService clientPool = Executors.newFixedThreadPool(3); // Handles accepting clients
-    private static final ExecutorService messageListener = Executors.newSingleThreadExecutor(); // One thread to listen for messages
+    private static final ExecutorService clientPool = Executors.newFixedThreadPool(3);
+    private static final ExecutorService messageListener = Executors.newSingleThreadExecutor();
 
     public static void main(String[] args) {
         System.out.println("Server started on port " + PORT);
 
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            messageListener.execute(() -> listenForMessages()); // Start global message listener
+            messageListener.execute(() -> listenForMessages());
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
 //                clientSocket.setReuseAddress();
-                clientPool.execute(new ClientHandlerrr(clientSocket)); // Accept client but don't create individual threads for message listening
+                clientPool.execute(new ClientHandlerrr(clientSocket));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Global thread to listen for all client messages and forward them
     private static void listenForMessages() {
         while (true) {
             for (ClientHandlerrr client : clients.values()) {
@@ -291,7 +290,6 @@ public class PrivateChatServer {
         }
     }
 
-    // Process message and send to the recipient
     private static void processMessage(String sender, String message) {
         if (message.startsWith("@")) {
             int spaceIndex = message.indexOf(' ');
@@ -300,10 +298,8 @@ public class PrivateChatServer {
                 String actualMessage = message.substring(spaceIndex + 1);
 
                 if (recipient.equalsIgnoreCase("all")) {
-                    // Send to all connected clients except the sender
                     broadcastMessage(sender, actualMessage);
                 } else {
-                    // Original private message logic
                     sendMessage(recipient, sender, actualMessage);
                 }
             } else {
@@ -314,19 +310,16 @@ public class PrivateChatServer {
         }
     }
 
-    // New method to broadcast message to all clients
     private static void broadcastMessage(String sender, String message) {
         String formattedMessage = "[Broadcast] " + sender + ": " + message;
         for (ClientHandlerrr client : clients.values()) {
-            if (!client.getUsername().equals(sender)) { // Don't send to sender
+            if (!client.getUsername().equals(sender)) {
                 client.sendMessage(formattedMessage);
             }
         }
-        // Optionally notify sender that message was broadcast
         clients.get(sender).sendMessage("Your message was broadcast to all users: " + message);
     }
 
-    // Send a message to a specific user
     private static void sendMessage(String recipient, String sender, String message) {
         ClientHandlerrr recipientClient = clients.get(recipient);
         if (recipientClient != null) {
@@ -336,20 +329,18 @@ public class PrivateChatServer {
         }
     }
 
-    // Register client
     static void registerClient(String username, ClientHandlerrr client) {
         clients.put(username, client);
         System.out.println("Client " + username + " registered.");
     }
 
-    // Remove client
     static void removeClient(String username) {
         clients.remove(username);
         System.out.println("Client " + username + " removed.");
     }
 }
 
-// Handles individual client connections but does NOT listen in separate threads
+
 class ClientHandlerrr implements Runnable {
     private Socket socket;
     private PrintWriter writer;

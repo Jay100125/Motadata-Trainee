@@ -13,7 +13,6 @@ public class PrivateChatClient {
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
-            // Read welcome message
             System.out.println(reader.readLine());
 
             // Enter username
