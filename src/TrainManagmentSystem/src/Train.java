@@ -1,39 +1,63 @@
 package TrainManagmentSystem.src;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Train {
-    private String trainId;
+public class Train
+{
+   private String trainId;
+
     private String source;
+
     private String destination;
-    private LocalDate departureTime;
+
+    private List<Coach> coaches = new ArrayList<>();
+
+    private LocalDate departureDate;
+
     private LocalDate arrivalTime;
 
-    public Train(String trainId, String source, String destination, LocalDate departureTime, LocalDate arrivalTime) {
+    public Train(String trainId, String source, String destination, LocalDate departureDate, LocalDate arrivalTime)
+    {
       this.trainId = trainId;
+
       this.source = source;
+
       this.destination = destination;
-      this.departureTime = departureTime;
+
+      this.departureDate = departureDate;
+
       this.arrivalTime = arrivalTime;
     }
 
-  public String getTrainId() {
+  public String getTrainId()
+  {
     return trainId;
   }
 
-  public String getSource() {
+  public String getSource()
+  {
     return source;
   }
 
-  public String getDestination() {
+  public String getDestination()
+  {
     return destination;
   }
 
-  public LocalDate getDepartureTime() {
-    return departureTime;
+  public List<Coach> getCoaches()
+  {
+    return coaches;
   }
 
-  public LocalDate getArrivalTime() {
+  public LocalDate getDepartureDate()
+  {
+    return departureDate;
+  }
+
+  public LocalDate getArrivalTime()
+  {
     return arrivalTime;
   }
 
@@ -43,7 +67,7 @@ public class Train {
       "trainId='" + trainId + '\'' +
       ", source='" + source + '\'' +
       ", destination='" + destination + '\'' +
-      ", departureTime=" + departureTime +
+      ", departureTime=" + departureDate +
       ", arrivalTime=" + arrivalTime +
       '}';
   }

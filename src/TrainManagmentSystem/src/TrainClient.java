@@ -1,6 +1,5 @@
 package TrainManagmentSystem.src;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,17 +8,20 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class TrainClient {
-
-  public static void main(String[] args) {
+public class TrainClient
+{
+  public static void main(String[] args)
+  {
     Scanner scanner = new Scanner(System.in);
 
     while(true)
     {
       System.out.println("\nOptions: \n1. Search Trains\n2. Book Seats\n3. Cancel Booking\n4. Exit");
+
       String choice = scanner.nextLine();
 
       String command = null;
+
       switch(choice)
       {
         case "1":
@@ -37,17 +39,19 @@ public class TrainClient {
           String id = scanner.nextLine();
           System.out.println("Train id");
           String trainId = scanner.nextLine();
-          System.out.println("Couch type");
+          System.out.println("Coach type");
           String couchType = scanner.nextLine();
           System.out.println("Number of Seats");
           int numberOfSeats = scanner.nextInt();
+          scanner.nextLine();
           command = "BOOK " + id + " " + trainId + " " + couchType + " " + numberOfSeats;
           break;
 
         case "3":
           System.out.println("PNR number");
           String pnrNumber = scanner.nextLine();
-          command = "CANCEL " + pnrNumber;
+          command = "CANCEL " + pnrNumber + "\n";
+          break;
 
         case "4":
           System.exit(0);
@@ -61,18 +65,29 @@ public class TrainClient {
       try(Socket socket = new Socket("127.0.0.1", 8080);
           PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
           BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-          ) {
+          )
+      {
         out.println(command);
-        String response = in.readLine();
-        System.out.println("Response: " + response);
 
-      } catch (UnknownHostException e) {
-        throw new RuntimeException(e);
-      } catch (IOException e) {
+        String response;
+
+        while ((response = in.readLine()) != null)
+        {
+          System.out.println(response);
+        }
+      }
+      catch (UnknownHostException e)
+      {
         throw new RuntimeException(e);
       }
+      catch (IOException e)
+      {
+        throw new RuntimeException(e);
+      }
+      finally
+      {
+        System.out.println("Closing connection");
+      }
     }
-
-
   }
 }

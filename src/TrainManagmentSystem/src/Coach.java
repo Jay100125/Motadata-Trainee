@@ -3,23 +3,40 @@ package TrainManagmentSystem.src;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Coach {
-  private String coachName;
-  private Map<String,Seat> seats;
+public class Coach
+{
+  private String type;
 
-  public Coach (String coachName, int totalSeats) {
-    this.coachName = coachName;
-    this.seats = new HashMap<>();
-    for (int i = 1; i <= totalSeats; i++) {
-      seats.put("S" + i, new Seat("S" + i));
+  private String coachId;
+
+  private Map<String,Booking> seatBookings;
+
+  public Coach (String type, String coachId, int totalSeats)
+  {
+    this.type = type;
+
+    this.coachId = coachId;
+
+    this.seatBookings = new HashMap<>();
+
+    for (int i = 1; i <= totalSeats; i++)
+    {
+      seatBookings.put("S" + i, null);
     }
   }
-  public String getCoachName() {
-    return coachName;
+
+  public String getCoachId()
+  {
+    return coachId;
   }
 
-  public Map<String, Seat> getSeats() {
-    return seats;
+  public String getType()
+  {
+    return type;
   }
 
+  public Map<String, Booking> getSeatBookings()
+  {
+    return seatBookings;
+  }
 }
