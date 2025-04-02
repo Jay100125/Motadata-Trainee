@@ -94,7 +94,7 @@ public class RequestHandler implements Runnable
     return response;
   }
 
-  private String handleSearch(String[] parts)
+  public String handleSearch(String[] parts)
   {
     String source = parts[1];
 
@@ -162,7 +162,7 @@ public class RequestHandler implements Runnable
       .toList();
   }
 
-  private String handleBooking(String[] parts)
+  public String handleBooking(String[] parts)
   {
     String userId = parts[1];
 
@@ -171,6 +171,11 @@ public class RequestHandler implements Runnable
     String coachId = parts[3];
 
     int numberOfSeats = Integer.parseInt(parts[4]);
+
+    if(numberOfSeats <= 0)
+    {
+      return "Invalid number of seats";
+    }
 
     Train train = trainMap.get(trainId);
 

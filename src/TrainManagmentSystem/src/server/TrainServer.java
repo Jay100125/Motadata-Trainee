@@ -111,9 +111,21 @@ public class TrainServer
 
     train.getCoaches().add(new Coach("AC", "C2", 5));
 
+    Train train2 = new Train("54321", "SA", "SB",
+      LocalDate.of(2025, 10, 10), LocalDate.of(2025, 10, 11));
+
+    train2.getCoaches().add(new Coach("Sleeper", "C1", 5));
+
+    train2.getCoaches().add(new Coach("AC", "C2", 5));
+
+
     trains.add(train);
 
+    trains.add(train2);
+
     trainMap.put(train.getTrainId(), train);
+
+    trainMap.put(train2.getTrainId(), train2);
 
     System.out.println("Created sample train data");
   }
